@@ -2,8 +2,6 @@
 
     $url = $_POST['parkapiurl'];
 
-    //$url = "http://uoweb3.ncl.ac.uk/api/v1.1/sensors/PER_CARPARK_ELLISON_PLACE_CP_TRAF/data/json/?starttime=20210302600&endtime=202103021000";
-
     $response = get_web_page($url);
     $resArr = array();
     $resArr = json_decode($response);

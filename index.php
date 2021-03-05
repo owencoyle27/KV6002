@@ -79,7 +79,38 @@
     <div class="row2">
 
         <div id="parkingInfo" class="widget1">
-            <h2> parking info near city campus</h2>
+            <h2>Parking Near Campus</h2>
+            <div class="carparkRow">
+                <div class="upperRow">
+                    <h2>Ellison Place</h2>
+                    <button>show on map</button>
+                </div>
+                <div class="lowerRow">
+                    <h2><span id="parkOccupied1">X</span>/60 spaces</h2>
+                    <p> updated at: <span id="parkTime1">time</span>
+                </div>
+            </div>
+            <div class="carparkRow">
+                <div class="upperRow">
+                    <h2>Mannors Car Park</h2>
+                    <button>show on map</button>
+                </div>
+                <div class="lowerRow">
+                    <h2><span id="parkOccupied2">X</span>/200 spaces</h2>
+                    <p> updated at: <span id="parkTime2">time</span>
+                </div>
+            </div>
+            <div class="carparkRow">
+                <div class="upperRow">
+                    <h2>Eldon Square</h2>
+                    <button>show on map</button>
+                </div>
+                <div class="lowerRow">
+                    <h2><span id="parkOccupied3">X</span>/300 spaces</h2>
+                    <p> updated at: <span id="parkTime3">time</span>
+                </div>
+            </div>
+
         </div>
 
 
@@ -91,9 +122,71 @@
 
     </div>
 
+
     <div class="row3">
-        Aditional info area
+        <div class="infoRow">
+            <div class="infoBox">
+                <p>Ask 4 Help</p>
+                <div class="infoImage">
+                    <img src="https://northumbria-cdn.azureedge.net/-/media/corporate-website/new-sitecore-gallery/services/campus-services/pod-images/campus-maps.jpg?modified=20201119203158" alt="" >
+                </div>
+            </div>
+            <div class="infoBox">
+                <p>Campus Map</p>
+                <div class="infoImage">
+                    <img src="dashboard/images/campusMap.jpg" alt="interactive campus map" >
+                </div>
+            </div>
+            <div class="infoBox">
+                <p>Student Forum</p>
+                <div class="infoImage">
+                    <img src="dashboard/images/forum.jpg" alt="northumbria student forum" >
+                </div>
+            </div>
+            <div class="infoBox">
+                <p>Student Societies</p>
+                <div class="infoImage">
+                    <img src="dashboard/images/sociteies.jpg" alt="Student Socities" >
+                </div>
+            </div>
+
+        </div> 
     </div>
+
+    <style>
+        .infoRow{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            text-align: center;
+        }
+
+        .infoBox{
+            max-width: 23%;
+            height: 250px;
+            border-bottom: solid;
+        }
+
+        .infoBox p{
+            font-size: 150%;
+            font-family: arial;
+            margin-bottom: 5px;
+
+            z-index: 5;
+            position: absolute;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .infoImage{
+            width: 100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+
+    </style>
 
     <script src="dashboard/js/bustimes.js"></script>
     <script src="dashboard/js/weather.js"></script>

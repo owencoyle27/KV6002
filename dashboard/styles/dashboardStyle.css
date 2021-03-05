@@ -27,13 +27,12 @@
     }
 
     @media only screen and (max-width: 900px) {
-        .row1, .row2 {
+        .row1, .row2, .row3 {
             width: 90%;
         }
     }
 
     .row3{
-        height: 150px;
         width: 70%;
         display: flex;
         flex-wrap: wrap;
@@ -279,5 +278,34 @@
 
     #hourWeatherDisplay::-webkit-scrollbar-thumb:hover {
         background: black; 
+    }
+
+
+
+    /*---------- car park row -------------------*/
+
+    .carparkRow{
+        width: 100%;
+    }
+    
+    
+    .upperRow, .lowerRow{
+        width: calc(100% - 40px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto 20px;
+    }
+    
+    @media only screen and (max-width: 800px) {
+        .upperRow, .lowerRow {
+            width: 100%;
+            margin: auto;
+        }
+    }
+    
+    .lowerRow{
+        margin-top: -10px;
+        border-bottom: solid black;
     }
 
