@@ -1,10 +1,9 @@
 
 <?php
 
+    $url = $_POST['parkapiurl'];
 
-
-
-    $response = get_web_page("https://www.netraveldata.co.uk/api/v2/carpark/dynamic");
+    $response = get_web_page($url);
     $resArr = array();
     $resArr = json_decode($response);
     $JSONarray =  print_r(json_encode($resArr));

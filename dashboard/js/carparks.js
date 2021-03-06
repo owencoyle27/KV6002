@@ -4,86 +4,68 @@
 function fetchSpaces(location) {
 
     if(location == "ellison"){
-        urlLoac = "PER_CARPARK_ELLISON_PLACE_CP_TRAF";
+        var dynamicURL = "https://www.netraveldata.co.uk/api/v2/carpark/dynamic/CP_NC_ELLSPL";
+        var staticURL = "https://www.netraveldata.co.uk/api/v2/carpark/static/CP_NC_ELLSPL";
+        var index = 1;
     }else if(location == "manors"){
-        urlLoac = "PER_CARPARK_MANORS_CP_TRAF";
+        var dynamicURL = "https://www.netraveldata.co.uk/api/v2/carpark/dynamic/CP_NC_MANORS";
+        var staticURL = "https://www.netraveldata.co.uk/api/v2/carpark/static/CP_NC_MANORS";
+        var index = 2;
     }else if(location == "eldon"){
-        urlLoac = "PER_CARPARK_ELDON_SQUARE_CP_TRAF";
+        var dynamicURL = "https://www.netraveldata.co.uk/api/v2/carpark/dynamic/CP0050";
+        var staticURL = "https://www.netraveldata.co.uk/api/v2/carpark/static/CP0050";
+        var index = 3;
+    }else if(location == "eldonGarden"){
+        var dynamicURL = "https://www.netraveldata.co.uk/api/v2/carpark/dynamic/CP0049";
+        var staticURL = "https://www.netraveldata.co.uk/api/v2/carpark/static/CP0049";
+        var index = 4;
     }
 
-    //formatting current date to format yyyymmddhhmm required for API
-    let d = new Date();
-    let EndTime = (d.getUTCFullYear() +  (addLeadingZero(d.getUTCMonth() + 1)) + (addLeadingZero(d.getUTCDate())) + (addLeadingZero(d.getHours())) +  (addLeadingZero(d.getMinutes())));
-    //get values from past 10 mins 
-    let s = new Date(d - 60000000);
-    let StartTime = (s.getUTCFullYear() +  (addLeadingZero(s.getUTCMonth() + 1)) + (addLeadingZero(s.getUTCDate())) + (addLeadingZero(s.getHours())) +  (addLeadingZero(s.getMinutes())));
-    
+    function getCapacity(capacity){
+        $.ajax({
+            type: 'POST', 
+            url: "dashboard/php/getCarPark.php",
+            data: { parkapiurl : dynamicURL },
+            success: function(data){
+                let result = (JSON.parse(data));
 
-    var apiurl = "http://uoweb3.ncl.ac.uk/api/v1.1/sensors/" + urlLoac +"/data/json/?starttime=" + StartTime + "&endtime=" + EndTime ;
+                let updateTime = (result.dynamics[0].lastUpdated);
+                let formatTime = updateTime.match(/\d\d:\d\d/);
+                let spacesOutput =  (result.dynamics[0].occupancy);
+                let stateOutput = (result.dynamics[0].stateDescription);
+        
+                document.getElementById("parkOccupied" + index).innerHTML = (capacity - spacesOutput);
+                document.getElementById("parkTime" + index).innerHTML = formatTime;
+                document.getElementById("parkState" + index).innerHTML = stateOutput;
+                document.getElementById("parkCapacity" + index).innerHTML =  capacity;
 
-    $.ajax({
-        type: 'POST', 
-        url: "dashboard/php/curl.php",
-        data: { parkapiurl : apiurl },
-        success: function(result){
-            //urban observatory API returns invalid JSON!!! slice is used to remove errous characters
-            //this is very verbous dealing with awkwardly formatted api return
-            const editedresult = result.slice(0, -1);
-            const editedresult2 = editedresult.slice(0, -1);
-            let data = (JSON.parse(editedresult2));
-            let count = (data.sensors[0].data["Occupied spaces"].length);
-            let checkTime = data.sensors[0].data["Occupied spaces"][count - 1].Timestamp;
-            let occupiedSpaces = data.sensors[0].data["Occupied spaces"][count - 1].Value;
 
-            // formating time stamp to human readable time
-            let date = new Date(checkTime);
-            let hours = date.getHours();
-            let minutes = "0" + date.getMinutes();
+                //gets colour between red and green depending on capacity 
+                let colorValue = (spacesOutput / capacity);
 
-            var formattedTime = hours + ':' + minutes.substr(-2);
-
-            var spaces = {
-                occupied : occupiedSpaces,
-                time : formattedTime,
+                function getColor(value){
+                    var hue=((1-value)*120).toString(10);
+                    return ["hsl(",hue,",100%,50%)"].join("");
+                }
+                
+                document.getElementById("parkState" + index).style.background = getColor(colorValue);
             }
-            updateDash(spaces, location);
-        } 
-    });
-
-
-//testing new api 
+        });
+    }
 
     $.ajax({
         type: 'POST', 
-        url: "dashboard/php/getCarPark.php",
-        data: { parkapiurl : apiurl },
+        url: "dashboard/php/getCarParkCapacity.php",
+        data: { parkapiurl : staticURL },
         success: function(result){
-            updateDash(JSON.parse(result));
+            var capacity = (JSON.parse(result).configurations[0].capacity);
+            getCapacity(capacity);
         }
     });
 
-
-
-    function updateDash(result){
-        console.log(result[87].dynamics[0].lastUpdated);
-
-        let spacesOutput =  (result[87].dynamics[0].occupancy);
-        let stateOutput = (result[87].dynamics[0].stateDescription);
-        document.getElementById("parkOccupied1").innerHTML = "X"
-
-
-    }
-
-}
-
-function addLeadingZero(number){
-    var newValue = number;
-    if(number < 10){
-        newValue = ('0' + number); 
-    }
-    return (newValue); 
 }
 
 fetchSpaces("ellison");
-//fetchSpaces("manors");
-//fetchSpaces("eldon");
+fetchSpaces("manors");
+fetchSpaces("eldon");
+fetchSpaces("eldonGarden");

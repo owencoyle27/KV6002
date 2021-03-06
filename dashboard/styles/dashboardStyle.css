@@ -279,6 +279,23 @@
     .carparkRow{
         width: 100%;
     }
+
+    #parkingInfo > h2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #parkingInfo button{
+        border: solid black;
+        background-color: white;
+        padding: 5px 10px;
+    }
+
+    #parkingInfo button:hover{
+        background-color: grey;
+    }
     
     
     .upperRow, .lowerRow{
@@ -299,6 +316,11 @@
     .lowerRow{
         margin-top: -10px;
         border-bottom: solid black;
+    }
+
+    #parkState1, #parkState2, #parkState3 , #parkState4 {
+        padding: 2px 4px;
+        border-radius: 10px;
     }
 
 
@@ -325,9 +347,6 @@
             width: 90%;
         }
     }
-
-
-
 
     .square a{
         text-decoration: none;

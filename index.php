@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard/styles/dashboardStyle.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Northumbria Dashboard </title>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -38,7 +39,7 @@
                 </div>
                 <div class="mainDisplay">
                     <div id="weatherIcon"> 
-                        <img id="icon" src="">
+                        <img id="icon" src="" alt="current weathe display">
                     </div>
                     <div id="weatherTemp">...</div>
                 </div>
@@ -79,35 +80,46 @@
     <div class="row2">
 
         <div id="parkingInfo" class="widget1">
-            <h2>Parking Near Campus</h2>
+            
+            <h2><img src='dashboard/icons/parking.png' style='height:40px;margin-right:5px;' alt="parking icon"> Parking Near Campus</h2>
             <div class="carparkRow">
                 <div class="upperRow">
-                    <h2>Ellison Place</h2>
+                    <h2>Ellison Place - <span id="parkState1">spaces</span></h2>
                     <button>show on map</button>
                 </div>
                 <div class="lowerRow">
-                    <h2><span id="parkOccupied1">X</span>/60 spaces</h2>
-                    <p> updated at: <span id="parkTime1">time</span>
+                    <h3><span id="parkOccupied1">X</span>/<span id="parkCapacity1">X</span>  free spaces</h3>
+                    <p> at: <span id="parkTime1">time</span>
                 </div>
             </div>
             <div class="carparkRow">
                 <div class="upperRow">
-                    <h2>Mannors Car Park</h2>
+                    <h2>Manors Car Park - <span id="parkState2">spaces</span></h2>
                     <button>show on map</button>
                 </div>
                 <div class="lowerRow">
-                    <h2><span id="parkOccupied2">X</span>/200 spaces</h2>
-                    <p> updated at: <span id="parkTime2">time</span>
+                    <h3><span id="parkOccupied2">X</span>/<span id="parkCapacity2">X</span>  free spaces</h3>
+                    <p> at: <span id="parkTime2">time</span>
                 </div>
             </div>
             <div class="carparkRow">
                 <div class="upperRow">
-                    <h2>Eldon Square</h2>
+                    <h2>Eldon Square - <span id="parkState3">spaces</span></h2>
                     <button>show on map</button>
                 </div>
                 <div class="lowerRow">
-                    <h2><span id="parkOccupied3">X</span>/300 spaces</h2>
-                    <p> updated at: <span id="parkTime3">time</span>
+                    <h3><span id="parkOccupied3">X</span>/<span id="parkCapacity3">X</span> free spaces</h3>
+                    <p> at: <span id="parkTime3">time</span>
+                </div>
+            </div>
+            <div class="carparkRow">
+                <div class="upperRow">
+                    <h2>Eldon Garden - <span id="parkState4">spaces</span></h2>
+                    <button>show on map</button>
+                </div>
+                <div class="lowerRow">
+                    <h3><span id="parkOccupied4">X</span>/<span id="parkCapacity4">X</span> free spaces</h3>
+                    <p> at: <span id="parkTime4">time</span>
                 </div>
             </div>
 

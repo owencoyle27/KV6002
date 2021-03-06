@@ -53,7 +53,7 @@
         //getting description
         let desc = (data.daily[i].weather[0].description);
 
-        document.getElementById('hourWeatherDisplay').innerHTML += ("<div class='hourWeatherCard'><p>" + days[day] + "</p><div class='hourIcon'><img src='" + icon + "'></div><b><p>" + temp + "</p></b><p id='hourDesc'>" + desc + "</p><div class='hourTemp'></div></div>"); 
+        document.getElementById('hourWeatherDisplay').innerHTML += ("<div class='hourWeatherCard'><p>" + days[day] + "</p><div class='hourIcon'><img src='" + icon + "' alt='weather icon'></div><b><p>" + temp + "</p></b><p id='hourDesc'>" + desc + "</p><div class='hourTemp'></div></div>"); 
       }
     })
     .catch(function() {
