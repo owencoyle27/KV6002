@@ -81,7 +81,7 @@ function refreshBusTimetable(){
     let busDate = (d.getUTCFullYear() + "-" + (d.getUTCMonth() + 1) + "-" + d.getUTCDate());
 
     //main function to start timetable
-    FetchBusTimes(busTime, busDate);
+    //FetchBusTimes(busTime, busDate);
 }
 
 //starts the bus time table   
