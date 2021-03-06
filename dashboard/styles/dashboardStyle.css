@@ -78,9 +78,6 @@
     }
 
 
-
-
-
     /* --------- BUS TIME TABLE ---------*/
 
     #busTimetable{
@@ -261,17 +258,14 @@
         height: 40px;
     }
 
-
     #hourWeatherDisplay::-webkit-scrollbar {
         height: 10px;
     }
-
 
     #hourWeatherDisplay::-webkit-scrollbar-track {
         background: #f1f1f1; 
     }
     
-
     #hourWeatherDisplay::-webkit-scrollbar-thumb {
         background: black; 
     }
@@ -279,8 +273,6 @@
     #hourWeatherDisplay::-webkit-scrollbar-thumb:hover {
         background: black; 
     }
-
-
 
     /*---------- car park row -------------------*/
 
@@ -307,5 +299,103 @@
     .lowerRow{
         margin-top: -10px;
         border-bottom: solid black;
+    }
+
+
+    /*----- information row ------------*/
+
+
+    .square {
+        float:left;
+        position: relative;
+        width: calc(30% - 8px);
+        padding-bottom : calc(30% - 8px); 
+        margin:1.66%;
+        background-color:#1E1E1E;
+        overflow:hidden;
+        border: 4px solid white;
+    }
+
+    .square:hover{
+        border: 4px solid black;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .row3 {
+            width: 90%;
+        }
+    }
+
+
+
+
+    .square a{
+        text-decoration: none;
+        color: white;
+    }
+
+    .content {
+        position: absolute;
+        height: 90%;
+        width: 90%;
+        padding: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 110%;
+        z-index: 10;
+    }
+
+    .content .rs{
+        width:auto;
+        height:auto;
+        max-height:90%;
+        max-width:100%;
+    }
+
+    .bg{
+        background-position:center center;
+        background-repeat:no-repeat;
+        background-size:cover; 
+        color:white;
+    }
+
+    .img1{
+        background-image: url('../images/bus.jpg');
+    }
+    .img2{
+        background-image: url('../images/campusMap.jpg');
+    }
+    .img3{
+        background-image: url('../images/forum.jpg');
+    }
+
+    .square:after {
+        content:'';
+        position:absolute;
+        left:0; top:0;
+        width:100%; height:100%;
+        display:inline-block;
+        background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0, 0, 0, 6) 100%); 
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.6))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0, 0, 0, 0.6) 100%); 
+        background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 100%); 
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 100%); 
+
+    }
+
+    @media only screen and (max-width: 800px) {
+        .square {
+            width: calc(90% - 8px);
+            padding-bottom : calc(40% - 8px); 
+        }
+
+        .content{
+            height: 45%;
+            font-size: 140%;
+            text-align: center;
+        }
     }
 

@@ -118,74 +118,37 @@
             <h2>Twitter Feed</h2>
         </div>
 
-
-
     </div>
 
 
     <div class="row3">
-        <div class="infoRow">
-            <div class="infoBox">
-                <p>Ask 4 Help</p>
-                <div class="infoImage">
-                    <img src="https://northumbria-cdn.azureedge.net/-/media/corporate-website/new-sitecore-gallery/services/campus-services/pod-images/campus-maps.jpg?modified=20201119203158" alt="" >
+       
+            <div class="square bg img1">
+            <a href="https://www.northumbria.ac.uk/about-us/our-campuses/coach-lane-campus/new-no-1-bus-service-to-coach-lane/">
+                <div class="content">
+                    University Bus Information
                 </div>
-            </div>
-            <div class="infoBox">
-                <p>Campus Map</p>
-                <div class="infoImage">
-                    <img src="dashboard/images/campusMap.jpg" alt="interactive campus map" >
-                </div>
-            </div>
-            <div class="infoBox">
-                <p>Student Forum</p>
-                <div class="infoImage">
-                    <img src="dashboard/images/forum.jpg" alt="northumbria student forum" >
-                </div>
-            </div>
-            <div class="infoBox">
-                <p>Student Societies</p>
-                <div class="infoImage">
-                    <img src="dashboard/images/sociteies.jpg" alt="Student Socities" >
-                </div>
+                </a>
             </div>
 
-        </div> 
+        <div class="square bg img2">
+            <a href="https://www.northumbria.ac.uk/about-us/facilities-services/around-campus/">
+                <div class="content">
+                    What's Around Campus
+                </div>
+            </a>
+        </div>
+        <div class="square bg img3">
+            <a href="https://www.northumbria.ac.uk/about-us/facilities-services/safety-on-campus/">
+                <div class="content">
+                    Safety on Campus
+                </div>
+            </a>
+        </div>
+
     </div>
 
-    <style>
-        .infoRow{
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            text-align: center;
-        }
 
-        .infoBox{
-            max-width: 23%;
-            height: 250px;
-            border-bottom: solid;
-        }
-
-        .infoBox p{
-            font-size: 150%;
-            font-family: arial;
-            margin-bottom: 5px;
-
-            z-index: 5;
-            position: absolute;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        .infoImage{
-            width: 100%;
-            object-fit: cover;
-            overflow: hidden;
-        }
-
-    </style>
 
     <script src="dashboard/js/bustimes.js"></script>
     <script src="dashboard/js/weather.js"></script>

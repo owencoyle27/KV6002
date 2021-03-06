@@ -18,12 +18,9 @@ function fetchSpaces(location) {
     let s = new Date(d - 60000000);
     let StartTime = (s.getUTCFullYear() +  (addLeadingZero(s.getUTCMonth() + 1)) + (addLeadingZero(s.getUTCDate())) + (addLeadingZero(s.getHours())) +  (addLeadingZero(s.getMinutes())));
     
-    
-    console.log(EndTime);
-    console.log(StartTime);
 
     var apiurl = "http://uoweb3.ncl.ac.uk/api/v1.1/sensors/" + urlLoac +"/data/json/?starttime=" + StartTime + "&endtime=" + EndTime ;
-    console.log(apiurl);
+
     $.ajax({
         type: 'POST', 
         url: "dashboard/php/curl.php",
@@ -37,8 +34,6 @@ function fetchSpaces(location) {
             let count = (data.sensors[0].data["Occupied spaces"].length);
             let checkTime = data.sensors[0].data["Occupied spaces"][count - 1].Timestamp;
             let occupiedSpaces = data.sensors[0].data["Occupied spaces"][count - 1].Value;
-            console.log(checkTime);
-            console.log(occupiedSpaces);
 
             // formating time stamp to human readable time
             let date = new Date(checkTime);
@@ -46,8 +41,6 @@ function fetchSpaces(location) {
             let minutes = "0" + date.getMinutes();
 
             var formattedTime = hours + ':' + minutes.substr(-2);
-
-            console.log(formattedTime);
 
             var spaces = {
                 occupied : occupiedSpaces,
@@ -57,20 +50,27 @@ function fetchSpaces(location) {
         } 
     });
 
-    function updateDash(spaces){
-        console.log("spaces: " + spaces.occupied);
-        console.log("time: " + spaces.time);
 
-        if(location == "ellison"){
-            document.getElementById("parkOccupied1").innerHTML = (spaces.occupied);
-            document.getElementById("parkTime1").innerHTML = (spaces.time);
-        }else if(location == "manors"){
-            document.getElementById("parkOccupied2").innerHTML = (spaces.occupied);
-            document.getElementById("parkTime2").innerHTML = (spaces.time);
-        }else if(location == "eldon"){
-            document.getElementById("parkOccupied3").innerHTML = (spaces.occupied);
-            document.getElementById("parkTime3").innerHTML = (spaces.time);
+//testing new api 
+
+    $.ajax({
+        type: 'POST', 
+        url: "dashboard/php/getCarPark.php",
+        data: { parkapiurl : apiurl },
+        success: function(result){
+            updateDash(JSON.parse(result));
         }
+    });
+
+
+
+    function updateDash(result){
+        console.log(result[87].dynamics[0].lastUpdated);
+
+        let spacesOutput =  (result[87].dynamics[0].occupancy);
+        let stateOutput = (result[87].dynamics[0].stateDescription);
+        document.getElementById("parkOccupied1").innerHTML = "X"
+
 
     }
 
@@ -85,5 +85,5 @@ function addLeadingZero(number){
 }
 
 fetchSpaces("ellison");
-fetchSpaces("manors");
-fetchSpaces("eldon");
+//fetchSpaces("manors");
+//fetchSpaces("eldon");
