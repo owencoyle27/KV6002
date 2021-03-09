@@ -4,9 +4,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard/styles/dashboardStyle.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
     <title>Northumbria Dashboard </title>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
 </head>
 
 <body>
@@ -54,7 +63,6 @@
 
         </div>
 
-
         <div id="busTimetable" class="widget1">
             <div class="timeTableHead">
                 <div id="busTitle">
@@ -75,6 +83,42 @@
             <div id="BusUpdatedStatus"></div>
             <button onclick="refreshBusTimetable()">Refresh</button>
         </div>
+    </div>
+
+    <div class="row2">
+    <div id="map"></div>
+
+        <script>
+            // TO MAKE THE MAP APPEAR YOU MUST
+            // ADD YOUR ACCESS TOKEN FROM
+            // https://account.mapbox.com
+            mapboxgl.accessToken = 'pk.eyJ1Ijoib3dlbmNveWxlMjEiLCJhIjoiY2tsc2p3MWgyMGF5dDJwbnh3M3E0Z2s2ayJ9.GAKLti4vJ81ac_bctZRxaw';
+       
+            var map = new mapboxgl.Map({
+                container: 'map', 
+                style: 'mapbox://styles/mapbox/streets-v11', 
+                center: [ -1.609, 54.97], 
+                zoom: 9 
+            });
+
+            L.marker([-1.609, 54.97]).addTo(mapLeaflet);
+
+        </script>
+
+        <style>
+
+            #map { 
+                width: 100%;
+                height: 400px; 
+            }
+
+            .apboxgl-canvas{
+                width:100%!important;
+                height: 100%!important;
+            }
+
+        </style>
+        
     </div>
 
     <div class="row2">
