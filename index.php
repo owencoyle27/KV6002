@@ -85,25 +85,10 @@
         </div>
     </div>
 
-    <div class="row2">
+    <div class="row2"  id="maprow">
     <div id="map"></div>
 
-        <script>
-            // TO MAKE THE MAP APPEAR YOU MUST
-            // ADD YOUR ACCESS TOKEN FROM
-            // https://account.mapbox.com
-            mapboxgl.accessToken = 'pk.eyJ1Ijoib3dlbmNveWxlMjEiLCJhIjoiY2tsc2p3MWgyMGF5dDJwbnh3M3E0Z2s2ayJ9.GAKLti4vJ81ac_bctZRxaw';
        
-            var map = new mapboxgl.Map({
-                container: 'map', 
-                style: 'mapbox://styles/mapbox/streets-v11', 
-                center: [ -1.609, 54.97], 
-                zoom: 9 
-            });
-
-            L.marker([-1.609, 54.97]).addTo(mapLeaflet);
-
-        </script>
 
         <style>
 
@@ -129,7 +114,7 @@
             <div class="carparkRow">
                 <div class="upperRow">
                     <h2>Ellison Place - <span id="parkState1">spaces</span></h2>
-                    <button>show on map</button>
+                    <button id="parkButton1">show on map</button>
                 </div>
                 <div class="lowerRow">
                     <h3><span id="parkOccupied1">X</span>/<span id="parkCapacity1">X</span>  free spaces</h3>
@@ -139,7 +124,7 @@
             <div class="carparkRow">
                 <div class="upperRow">
                     <h2>Manors Car Park - <span id="parkState2">spaces</span></h2>
-                    <button>show on map</button>
+                    <button id="parkButton2">show on map</button>
                 </div>
                 <div class="lowerRow">
                     <h3><span id="parkOccupied2">X</span>/<span id="parkCapacity2">X</span>  free spaces</h3>
@@ -149,7 +134,7 @@
             <div class="carparkRow">
                 <div class="upperRow">
                     <h2>Eldon Square - <span id="parkState3">spaces</span></h2>
-                    <button>show on map</button>
+                    <button id="parkButton3">show on map</button>
                 </div>
                 <div class="lowerRow">
                     <h3><span id="parkOccupied3">X</span>/<span id="parkCapacity3">X</span> free spaces</h3>
@@ -159,7 +144,7 @@
             <div class="carparkRow">
                 <div class="upperRow">
                     <h2>Eldon Garden - <span id="parkState4">spaces</span></h2>
-                    <button>show on map</button>
+                    <button id="parkButton4">show on map</button>
                 </div>
                 <div class="lowerRow">
                     <h3><span id="parkOccupied4">X</span>/<span id="parkCapacity4">X</span> free spaces</h3>
@@ -209,6 +194,69 @@
     <script src="dashboard/js/bustimes.js"></script>
     <script src="dashboard/js/weather.js"></script>
     <script src="dashboard/js/carparks.js"></script>
+
+    <script>
+            // TO MAKE THE MAP APPEAR YOU MUST
+            // ADD YOUR ACCESS TOKEN FROM
+            // https://account.mapbox.com
+            mapboxgl.accessToken = 'pk.eyJ1Ijoib3dlbmNveWxlMjEiLCJhIjoiY2tsc2p3MWgyMGF5dDJwbnh3M3E0Z2s2ayJ9.GAKLti4vJ81ac_bctZRxaw';
+       
+            var map = new mapboxgl.Map({
+                container: 'map', 
+                style: 'mapbox://styles/mapbox/streets-v11', 
+                center: [ -1.609, 54.97], 
+                zoom: 13
+            });
+
+            document.getElementById("parkButton1").onclick = function(){
+
+                let marker = new mapboxgl.Marker().setLngLat([-1.6083315, 54.9758702]).addTo(map);
+                map.flyTo({
+                    center: [-1.6083315, 54.9758702],
+                    essential: true
+                });
+                document.getElementById("maprow").style.height = "auto";
+                document.getElementById("maprow").style.visibility = "visible";
+                document.getElementById("map").scrollIntoView();
+            };
+
+            document.getElementById("parkButton2").onclick = function(){
+                let marker = new mapboxgl.Marker().setLngLat([-1.606887, 54.9726012]).addTo(map);
+                map.flyTo({
+                    center: [-1.606887, 54.9726012],
+                    essential: true
+                });
+                document.getElementById("maprow").style.height = "auto";
+                document.getElementById("maprow").style.visibility = "visible";
+                document.getElementById("map").scrollIntoView();
+
+            };
+
+            document.getElementById("parkButton3").onclick = function(){
+                let marker = new mapboxgl.Marker().setLngLat([-1.615571, 54.975901]).addTo(map);
+                map.flyTo({
+                    center: [-1.615571, 54.975901],
+                    essential: true
+                });
+                document.getElementById("maprow").style.height = "auto";
+                document.getElementById("maprow").style.visibility = "visible";
+                document.getElementById("map").scrollIntoView();
+            };
+
+            document.getElementById("parkButton4").onclick = function(){
+                let marker = new mapboxgl.Marker().setLngLat([-1.6168294, 54.9763291]).addTo(map);
+                map.flyTo({
+                    center: [-1.6168294, 54.9763291],
+                    essential: true
+                });
+                document.getElementById("maprow").style.height = "auto";
+                document.getElementById("maprow").style.visibility = "visible";
+                document.getElementById("map").scrollIntoView();
+            };
+
+
+            
+        </script>
 </body>
 
 </html>

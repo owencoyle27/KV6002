@@ -1,5 +1,9 @@
 
     /*--------page layout -------------*/
+
+    html{
+        scroll-behavior: smooth;
+    }
     
     body{
         margin: 0;
@@ -272,6 +276,15 @@
 
     #hourWeatherDisplay::-webkit-scrollbar-thumb:hover {
         background: black; 
+    }
+
+    /* ---------- map ---------------*/
+
+    #maprow{
+        height: 0px;
+        overflow: hidden;
+        transition: height 1s ease;
+        visibility: hidden
     }
 
     /*---------- car park row -------------------*/
