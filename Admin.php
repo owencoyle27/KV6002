@@ -20,13 +20,14 @@
           <li><a href="forum.html">Forum</a></li>
         </ul>
     </div> 
+    
 <?php
 
 session_start();
 
 
-
 if ( isset( $_SESSION['user_id'] ) ) {
+    
     //if user is signed in, show admin page
     echo '<div class="userBar"><p> Signed in As <b> ' . $_SESSION['user_id'] . '</b></p><form action="AdminAssets/php/logout.php" method="post"><input type="submit" value="log out"></form></div>';
    
@@ -35,36 +36,10 @@ if ( isset( $_SESSION['user_id'] ) ) {
 
 } else {
     //if no user is signed in, show login form
-    echo <<<LOG
-        <form action="AdminAssets/php/loginProcess.php" id="SignInForm" method="post">
-        <h2> Login to an Admin Account </h2>
-            <input type="text" name="username" placeholder="Enter your username" required>
-            <input type="password" name="password" placeholder="Enter your password" required>
-            <input type="submit" value="Submit">
-        </form>
-        LOG;
+    echo '<form action="AdminAssets/php/loginProcess.php" id="SignInForm" method="post"><h2> Login to an Admin Account </h2><input type="text" name="username" placeholder="Enter your username" required><input type="password" name="password" placeholder="Enter your password" required><input type="submit" value="Submit"></form>';
 }
 
-
-
 function DashboardUpdate(){
-    echo <<<UPD
-            <div class="DashboardUpdateOuter">
-                <form action="DashboardUpdate.php" method="post">
-                    <h2>Dashboard Message Update</h2>
-                    <div class="DashFormRow1">
-                        <textarea id="campusUpdate" type="textarea" name="updateMessage" placeholder="enter update info" rows="4" cols="50" required></textarea>
-                        <img id="preveiw" src="#" alt="Upload an Image" />
-                    </div>
-                    <div class="DashFormRow2">
-                        <input type="text" name="date" id="date" placeholder="Enter date of update" required>
-                        <input type='file' id="imgInput" name="filename" onchange="readURL(this)" required/>
-                    </div>
-                    <div class="DashFormRow3">
-                        <input id="dashSubmit" type="submit" value="Submit">
-                    </div>
-                </form> 
-            </div>
-        UPD;
+    echo '<div class="DashboardUpdateOuter"><form action="DashboardUpdate.php" method="post"><h2>Dashboard Message Update</h2><div class="DashFormRow1"><textarea id="campusUpdate" type="textarea" name="updateMessage" placeholder="enter update info" rows="4" cols="50" required></textarea><img id="preveiw" src="#" alt="Upload an Image" /></div><div class="DashFormRow2"><input type="text" name="date" id="date" placeholder="Enter date of update" required><input type="file" id="imgInput" name="filename" onchange="readURL(this)" required/></div><div class="DashFormRow3"><input id="dashSubmit" type="submit" value="Submit"></div></form></div>';
     }
 ?>
