@@ -22,8 +22,9 @@ function getDbConnection($dbname) {
 /**
  * 
  * 
- * @ param $conn {PDO db connectin}
- * @
+ * @param $conn {PDO db connectin}
+ * @param $updateMessage {String} - message body text
+ * @param $updateDate {String}
  */
 function updateMessage($conn, $updateMessage, $updateDate) {
 

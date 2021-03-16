@@ -36,19 +36,18 @@
             <p id="updateDate"></p>
         </div>
         <div id="upateImageOuter">
-            <img id="updateImage" src="dashboard\images\defaultUpdateImage.png">
+            <img id="updateImage" src="dashboard/images/defaultUpdateImage.png" alt="image of buildigns on campus">
         </div>
     </div>
 
     <script>
         /**
-         * updates the campus upate widegt with data from the database 
+         * updates the campus upate widget with data from the database 
          * @abstract
          */
         $.ajax({
             url: "AdminAssets/php/getDashboardUpdate.php",
             success: function(result){
-                console.log(result);
                 let updateJSON = JSON.parse(result);
                 
                 //check if response is good
@@ -65,36 +64,6 @@
 
     </script>
 
-    <style>
-    .row1{
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: space-between;
-        height: auto;
-        font-size: 120%;
-    }
-
-    @media only screen and (max-width: 900px) {
-        .row1 {
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-    }
-
-    #updateTextArea{
-        box-sizing: border-box;
-        padding: 10px;
-    }
-
-    #updateImage{
-        height: 250px;
-        width: 250px;
-        object-fit: cover;
-        overflow: hidden;
-    }
-
-    
-    </style>
 
     <div class="row2">
         <div class="weatherdisplay widget1">
@@ -112,7 +81,7 @@
                 </div>
                 <div class="mainDisplay">
                     <div id="weatherIcon"> 
-                        <img id="icon" src="" alt="current weathe display">
+                        <img id="icon" src="#" alt="current weathe display">
                     </div>
                     <div id="weatherTemp">...</div>
                 </div>
@@ -145,29 +114,13 @@
 
             </div>
             <div id="BusUpdatedStatus"></div>
-            <button onclick="refreshBusTimetable()">Refresh</button>
+            <button id="busRefreshButton" onclick="refreshBusTimetable()">Refresh</button>
+            <button id="showStopButton" >Show Stop On Map</button>
         </div>
     </div>
 
     <div class="row2"  id="maprow">
-    <div id="map"></div>
-
-       
-
-        <style>
-
-            #map { 
-                width: 100%;
-                height: 400px; 
-            }
-
-            .apboxgl-canvas{
-                width:100%!important;
-                height: 100%!important;
-            }
-
-        </style>
-        
+        <div id="map"></div>        
     </div>
 
     <div class="row2">
@@ -221,7 +174,13 @@
 
         <div id="twitterFeed" class="widget1">
             <h2>Twitter Feed</h2>
+            <p> recent tweets from offical Nortumbria accounts </p>
         </div>
+
+        <style>
+
+
+        </style>
 
     </div>
 
@@ -253,74 +212,13 @@
 
     </div>
 
-
-
     <script src="dashboard/js/bustimes.js"></script>
     <script src="dashboard/js/weather.js"></script>
     <script src="dashboard/js/carparks.js"></script>
+    <script src="dashboard/js/twitterFeed.js"></script>
+    <script src="dashboard/js/map.js"></script>
 
-    <script>
-            // TO MAKE THE MAP APPEAR YOU MUST
-            // ADD YOUR ACCESS TOKEN FROM
-            // https://account.mapbox.com
-            mapboxgl.accessToken = 'pk.eyJ1Ijoib3dlbmNveWxlMjEiLCJhIjoiY2tsc2p3MWgyMGF5dDJwbnh3M3E0Z2s2ayJ9.GAKLti4vJ81ac_bctZRxaw';
-       
-            var map = new mapboxgl.Map({
-                container: 'map', 
-                style: 'mapbox://styles/mapbox/streets-v11', 
-                center: [ -1.609, 54.97], 
-                zoom: 13
-            });
-
-            document.getElementById("parkButton1").onclick = function(){
-
-                let marker = new mapboxgl.Marker().setLngLat([-1.6083315, 54.9758702]).addTo(map);
-                map.flyTo({
-                    center: [-1.6083315, 54.9758702],
-                    essential: true
-                });
-                document.getElementById("maprow").style.height = "auto";
-                document.getElementById("maprow").style.visibility = "visible";
-                document.getElementById("map").scrollIntoView();
-            };
-
-            document.getElementById("parkButton2").onclick = function(){
-                let marker = new mapboxgl.Marker().setLngLat([-1.606887, 54.9726012]).addTo(map);
-                map.flyTo({
-                    center: [-1.606887, 54.9726012],
-                    essential: true
-                });
-                document.getElementById("maprow").style.height = "auto";
-                document.getElementById("maprow").style.visibility = "visible";
-                document.getElementById("map").scrollIntoView();
-
-            };
-
-            document.getElementById("parkButton3").onclick = function(){
-                let marker = new mapboxgl.Marker().setLngLat([-1.615571, 54.975901]).addTo(map);
-                map.flyTo({
-                    center: [-1.615571, 54.975901],
-                    essential: true
-                });
-                document.getElementById("maprow").style.height = "auto";
-                document.getElementById("maprow").style.visibility = "visible";
-                document.getElementById("map").scrollIntoView();
-            };
-
-            document.getElementById("parkButton4").onclick = function(){
-                let marker = new mapboxgl.Marker().setLngLat([-1.6168294, 54.9763291]).addTo(map);
-                map.flyTo({
-                    center: [-1.6168294, 54.9763291],
-                    essential: true
-                });
-                document.getElementById("maprow").style.height = "auto";
-                document.getElementById("maprow").style.visibility = "visible";
-                document.getElementById("map").scrollIntoView();
-            };
-
-
-            
-        </script>
+    <?php include "footer.php" ?>
 </body>
 
 </html>

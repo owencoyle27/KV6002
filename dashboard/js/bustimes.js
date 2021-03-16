@@ -55,8 +55,8 @@ async function getArivalTime(url) {
         const ariveTime = await response.json();
 
         if(ariveTime.dir == "outbound"){
-            //coach lane camus is the 17th stop on this route
-            return ariveTime.stops[17].time;
+            //coach lane camus is the 16th stop on this route
+            return ariveTime.stops[16].time;
         }else{
             //if round is inbound from coach lane, civic centre (free stop) is the 19th stop on the route
             return ariveTime.stops[19].time;
@@ -75,13 +75,13 @@ async function getArivalTime(url) {
  * 
  */
 function refreshBusTimetable(){
-    document.getElementById("busTimetableListings").innerHTML = "<p>Loading...(api calls commented out for testing, busTimes.js line 84)</p>";
+    document.getElementById("busTimetableListings").innerHTML = "<p>Loading...</p>";
     let d = new Date();
     let busTime = (d.getHours() + ":" + d.getMinutes());
     let busDate = (d.getUTCFullYear() + "-" + (d.getUTCMonth() + 1) + "-" + d.getUTCDate());
 
     //main function to start timetable
-    //FetchBusTimes(busTime, busDate);
+    FetchBusTimes(busTime, busDate);
 }
 
 //starts the bus time table   

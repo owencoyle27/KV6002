@@ -16,7 +16,6 @@
       }else if(campus == "lat=55.0066217&lon=-1.5778385"){
         campusName = "Coach Lane Campus";
       }
-      console.log(campusName);
       document.getElementById("weatherLoaction").innerHTML = (campusName);
       document.getElementById("icon").src = ("dashboard/icons/" + (data.weather[0].icon) + ".png");
       document.getElementById("weatherTemp").innerHTML = (Math.floor(data.main.temp - 273.15) + "°C");

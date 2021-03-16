@@ -1,15 +1,8 @@
-
-
-  
+<nav class=" navbar navbar-expand-md navbar-dark" style="background-color: black;"> 
 <link href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity= "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
-<link rel="stylesheet" href="style.css"/>  
-
+<link rel="stylesheet" href="style.css"/> 
   
-<body> 
-    <nav class=" navbar navbar-expand-md  
-        navbar-dark" style="background-color: black;"> 
-  
-        <a class="navbar-brand" href="index.php" > 
+        <a class="navbar-brand" href="#" > 
             <img src= "images/Logo4.png" alt="University Logo" > 
         </a> 
           
@@ -27,7 +20,7 @@
                 id="navbarSandwich"> 
             <ul class="navbar-nav ml-auto"> 
                 <li class="nav-item active"> 
-                    <a class="nav-link" href="index.php">Home 
+                    <a class="nav-link" href="#">Home 
                         <span class="sr-only">(current)</span> 
                     </a> 
                 </li> 
@@ -42,26 +35,4 @@
                 </li> 
             </ul> 
         </div> 
-    </nav> 
-
-    <div>  Click here! <link href= 
-        "Societies.php"></div>
-
-
-
-
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity= 
-"sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
-            crossorigin="anonymous"> 
-    </script> 
-      
-    <script src= 
-"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity= 
-"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"> 
-    </script> 
-</body> 
-  
-</html> 
+</nav> 

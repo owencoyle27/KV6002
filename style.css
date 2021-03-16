@@ -27,3 +27,15 @@ display: inline-block;
   background-color: #111;
 }
 
+.FooterOuter{
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+
+
