@@ -30,8 +30,72 @@
     </div> 
 
     <div class="row1">
-        campus updates, entered from form somewhere
+        <div id="updateTextArea">
+            <p>Latest update from Northumbria campus sevices: </p>
+            <h2 id="updateBody">unable to fetch latest update</h2>
+            <p id="updateDate"></p>
+        </div>
+        <div id="upateImageOuter">
+            <img id="updateImage" src="dashboard\images\defaultUpdateImage.png">
+        </div>
     </div>
+
+    <script>
+        /**
+         * updates the campus upate widegt with data from the database 
+         * @abstract
+         */
+        $.ajax({
+            url: "AdminAssets/php/getDashboardUpdate.php",
+            success: function(result){
+                console.log(result);
+                let updateJSON = JSON.parse(result);
+                
+                //check if response is good
+                if(updateJSON[0] == "200"){
+                    document.getElementById("updateBody").innerHTML = updateJSON[2]; //message body
+                    document.getElementById("updateDate").innerHTML = updateJSON[3]; //mesage date
+                    document.getElementById("updateImage").src = ("dashboard/images/" + updateJSON[4] + "?" + Date.now()); //Time is added as a fake query strign to prevent browser caching Image.
+                }else{
+                    document.getElementById("updateBody").innerHTML = "unable to fetch update!"; 
+                    document.getElementById("updateDate").innerHTML = ""; 
+                }
+            }
+        });
+
+    </script>
+
+    <style>
+    .row1{
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        height: auto;
+        font-size: 120%;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .row1 {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    #updateTextArea{
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    #updateImage{
+        height: 250px;
+        width: 250px;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    
+    </style>
+
     <div class="row2">
         <div class="weatherdisplay widget1">
             <div class="weatherHeader">

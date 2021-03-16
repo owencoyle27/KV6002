@@ -3,6 +3,7 @@
 
     html{
         scroll-behavior: smooth;
+        font-family: Arial, Helvetica, sans-serif;
     }
     
     body{
@@ -284,7 +285,7 @@
         height: 0px;
         overflow: hidden;
         transition: height 1s ease;
-        visibility: hidden
+        visibility: hidden;
     }
 
     /*---------- car park row -------------------*/
