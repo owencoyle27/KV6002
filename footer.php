@@ -11,3 +11,16 @@
         <p>Enes Zengin : 16021863</p>
     </div>
 </div>
+
+<style>
+
+.FooterOuter{
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 40px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+</style>
