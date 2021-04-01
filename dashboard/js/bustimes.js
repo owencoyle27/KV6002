@@ -27,7 +27,7 @@ async function BusSchedule(data, time, date){
     document.getElementById("busTimetableListings").innerHTML = "";
     for(i=0;i<data.departures[1].length; i++){
         const arival = await getArivalTime(data.departures[1][i].id)
-        document.getElementById("busTimetableListings").innerHTML += ("<div class='timeTableRow'><img src='dashboard/icons/front-of-bus.svg' alt='bus icon' style='height:30px;'> <p>Bus " + data.departures[1][i].line + " Departs : <b>" + data.departures[1][i].best_departure_estimate + "</b> Arrives: " + arival  + "</p></div>");
+        document.getElementById("busTimetableListings").innerHTML += ("<div class='timeTableRow'><img src='dashboard/icons/front-of-bus.svg' alt='bus icon' style='height:30px;'> <p>Bus " + data.departures[1][i].line + " Departs : <b>" + data.departures[1][i].best_departure_estimate + "</b> Arrives:<b> " + arival  + "</b></p></div>");
     }
 }
 
@@ -53,6 +53,7 @@ async function getArivalTime(url) {
         });
         //wait for response before trying next iteration
         const ariveTime = await response.json();
+        console.log(ariveTime);
 
         if(ariveTime.dir == "outbound"){
             //coach lane camus is the 16th stop on this route
@@ -81,6 +82,7 @@ function refreshBusTimetable(){
     let busDate = (d.getUTCFullYear() + "-" + (d.getUTCMonth() + 1) + "-" + d.getUTCDate());
 
     //main function to start timetable
+    FetchBusTimes(busTime, busDate);
     FetchBusTimes(busTime, busDate);
 }
 

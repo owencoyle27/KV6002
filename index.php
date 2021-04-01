@@ -96,10 +96,10 @@
                     <p> Bus Times:</p> 
                 </div>
                 <div id="StopSelectCont">
-                    <label for="stopsSelect">Choose a Destination:</label>
+                    <label for="stopsSelect">Route:</label>
                     <select id="stopsSelect" onchange="refreshBusTimetable()">
-                        <option value="410000015640">City Campus</option>
-                        <option value="410000009923">Coach Lane</option>
+                        <option value="410000015640">City Campus &rarr; Coach Lane</option>
+                        <option value="410000009923">Coach Lane &rarr; City Campus</option>
                     </select>
                 </div>  
             </div>
