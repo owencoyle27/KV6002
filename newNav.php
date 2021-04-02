@@ -10,6 +10,7 @@
       <li><a href="#">Campus Map</a></li>
       <li><a href="#">Socities</a></li>
       <li><a href="#contact">Forum</a></li>
+      <li><a href="#">Chat Bot</a></li>
     </ul>
 </header>
 
@@ -106,7 +107,7 @@
     }
 
     .nav .menu-btn:checked ~ .menu {
-        max-height: 240px;
+        max-height: 360px;
     }
 
     .nav .menu-btn:checked ~ .menu-icon .navicon {

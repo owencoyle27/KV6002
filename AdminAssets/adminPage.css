@@ -3,19 +3,21 @@ html{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body{
+    margin: 0;
+}
+
 /*----------- Login Form ---------------*/
 
 #SignInForm{
     width: 40%;
-    margin-top: 50px;
     margin: auto;
     border: solid black;
     padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
 }
- 
+
 #SignInForm input{
     width: 80%;
     margin-bottom: 30px;
@@ -39,16 +41,15 @@ html{
 .userBar{
     border: solid black;
     padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 80%;
+    margin: auto;
+    text-align: center;
 }
 
 .userBar input{
     border: solid black;
     padding: 5px 15px;
     background-color: white;
-    margin-left: 40px;
 }
 
 .userBar input:hover{
@@ -64,6 +65,15 @@ html{
     align-content: center;
     height: 200px;
     font-size: 150%;
+}
+
+.updateError{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 130%;
+    width: 100%;
+    text-align: center;
+    padding: 100px 20%;
 }
 
 

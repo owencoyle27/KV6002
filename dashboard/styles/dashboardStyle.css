@@ -59,8 +59,9 @@
 
     @media only screen and (max-width: 900px) {
         .widget1 {
+            box-sizing: border-box;
             width: 100%;
-            border: none;
+            margin: 5px 0;
         }
     }
 
@@ -82,24 +83,83 @@
         border: solid;
     }
 
+    /*----------hero Image -------------------*/
+    .nav .logo, .nav .menu{
+        margin-bottom: -2px;
+    }
+
+    .heroBannerOuter{
+        box-sizing: border-box;
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+        margin-top: -10px;
+    }
+
+    .heroBanner{
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    .heroBannerOuter:after {
+        content: '';
+        position: relative;
+        width: 100%; 
+        height: 250px;
+        margin-top: -250px;
+        display: inline-block;
+        background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0, 0, 0, 6) 100%); 
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.6))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0, 0, 0, 0.6) 100%); 
+        background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 100%); 
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 100%); 
+    }
+
+    .dashboardHeading{
+        color: white;
+        width: 70%;
+        margin: -50px auto 0px;
+        font-size: 220%;
+        position: relative;
+        z-index: 10;
+    }
+
+    @media only screen and (max-width: 800px) {
+        .heroBanner{
+            height: 250px;
+        }
+
+        .dashboardHeading{
+            width: 100%;
+            text-align: center;
+        }
+    }
+
 
     /* --------- BUS TIME TABLE ---------*/
 
     #busTimetable{
         border: solid black;
-        padding: 5px;
+        padding: 0 0 5px 0;
         display: flex;
         flex-wrap: wrap;
         font-family: azo-sans-web, sans-serif !important;
     }
 
     .timeTableHead{
-        width: 90%;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 15px;
         margin: auto;
+        margin-top: 0;
         display: flex;
         border-bottom: solid black ;
         align-content: center;
         flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
     }
 
     #LiveDot {
@@ -115,11 +175,11 @@
     }
 
     #busTimetableListings{
-        width: 450px;
+        width: 90%;
         border: solid black;
         padding: 10px;
         margin: 10px auto;
-        height: 400px;
+        height: 520px;
         overflow-y: scroll;
     }
 
@@ -154,8 +214,8 @@
     }
 
     #busTitle{
-        width: 100%;
         display: flex;
+        align-items: center;
     }
 
     #updateStatus{
@@ -328,7 +388,6 @@
         background-color: grey;
     }
     
-    
     .upperRow, .lowerRow{
         width: calc(100% - 40px);
         display: flex;
@@ -336,22 +395,40 @@
         justify-content: space-between;
         margin: auto 20px;
     }
+
+    #parkState1, #parkState2, #parkState3, #parkState4 {
+        font-size: 80%;
+    }
     
+    .lowerRow{
+        margin-top: -22px;
+    }
+
+    .carBarArea{
+        margin-top: 0;
+        width: calc(100% - 40px);
+        margin: auto;
+        border-bottom: solid black;
+    }
+    .loadingBar{
+        box-sizing: border-box;
+        width: 50%;
+        padding: 5px 5px;
+        margin: 0px ;
+        white-space: nowrap;
+        font-weight: bold;
+        font-size: 120%;
+    }
+
     @media only screen and (max-width: 800px) {
         .upperRow, .lowerRow {
             width: 100%;
             margin: auto;
         }
-    }
-    
-    .lowerRow{
-        margin-top: -10px;
-        border-bottom: solid black;
-    }
 
-    #parkState1, #parkState2, #parkState3 , #parkState4 {
-        padding: 2px 4px;
-        border-radius: 10px;
+        .carBarArea{
+            width: 100%;
+        }
     }
 
 
@@ -419,24 +496,24 @@
         background-image: url('../images/campusMap.jpg');
     }
     .img3{
-        background-image: url('../images/forum.jpg');
+        background-image: url('../images/campusSafety.png');
     }
 
     .square:after {
         content:'';
         position:absolute;
-        left:0; top:0;
-        width:100%; height:100%;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
         display:inline-block;
         background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0, 0, 0, 6) 100%); 
         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.6))); /* Chrome,Safari4+ */
         background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0, 0, 0, 0.6) 100%); 
         background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 100%); 
         background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 100%); 
-
     }
     
-
     @media only screen and (max-width: 800px) {
         .square {
             width: calc(90% - 8px);
@@ -494,10 +571,33 @@
 
     /*----- twitter feed -------*/
 
+    #twitterContainer{
+        padding: 0px;
+    }
+
+    #twitterMenu{
+        width: 100%;
+        border-bottom: solid black;
+        padding: 5px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    #twitterSelect{
+        margin: auto 5px;
+        padding: 5px;
+        border: solid;
+    }
+
     #twitterFeed{
         overflow-y: scroll;
         height: 670px;
+        width: 100%;
     }
+
+
+
     #twitterFeed > h2, #twitterFeed > p{
         width: 100%;
         text-align: center;
@@ -512,7 +612,6 @@
     .tweetusername{
         font-size: 120%;
         font-weight: bold;
-        margin-bottom: 5px;
     }
     .tweetbox > p{
         margin-top: 7px;
@@ -533,5 +632,51 @@
 
     #twitterFeed::-webkit-scrollbar-thumb:hover {
         background: black; 
+    }
+
+    .tweetHeader{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .tweetusername{
+        width: 80%;
+        padding-left: 10px;
+    }
+
+    .twittertime{
+        margin: 5px 0;
+        font-weight: 600;
+    }
+
+    .twitterImage{
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+
+    .twitterImagetext{
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .loader {
+        margin: 50px auto;
+        border: 6px solid grey; 
+        border-top: 6px solid black; 
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
     }
 
