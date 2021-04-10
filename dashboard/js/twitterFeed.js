@@ -32,7 +32,7 @@ function getTweets(){
             function formatTweet(full_text, username, time, profilePicture, image){
 
                 if(image != null){
-                    image = '<img class="twitterImage" src="' + image +'" onclick="SizeTwitterImage(this)"></img>' + 
+                    image = '<img class="twitterImage" src="' + image +'" alt="twitterImage" onclick="SizeTwitterImage(this)"></img>' + 
                             '<p class="twitterImagetext"> &#9650 Tap to expand image </p>';
                 }else{
                     image = '';

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard/styles/dashboardStyle.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
@@ -72,6 +71,8 @@
                     <select id="weatherSelect" onchange="campusSelect()">
                         <option value="lat=54.9779843&lon=-1.6097892">City Campus</option>
                         <option value="lat=55.0066217&lon=-1.5778385">Coach Lane</option>
+                        <option value="lat=51.5178234&lon=-0.0800967">London Campus</option>
+                        <option value="lat=52.3462904&lon=4.9153553">Amsterdam Campus</option>
                     </select>
             </div>
             <div class="mainWeatherDisplay">

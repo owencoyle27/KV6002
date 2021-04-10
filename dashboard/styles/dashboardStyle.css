@@ -299,10 +299,15 @@
     #hourWeatherDisplay{
         border: solid;
         width: 100%;
-        height: 245px;
         display: flex;
         overflow-x: scroll;
         overflow-y: hidden;
+    }
+
+    @media only screen and (max-width: 800px) {
+        #hourWeatherDisplay{
+            margin-bottom: 15px;
+        }
     }
 
     .hourWeatherCard{
@@ -680,3 +685,16 @@
         100% { transform: rotate(360deg); }
     }
 
+
+    /*---Footer---*/
+
+    .FooterOuter{
+        width: 100%;
+        background-color: black;
+        color: white;
+        padding: 40px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      
+      

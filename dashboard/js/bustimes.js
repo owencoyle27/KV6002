@@ -7,7 +7,6 @@
  */
 function FetchBusTimes(time, date){
     let stop = document.getElementById("stopsSelect").value
-    console.log("stop" + stop);
     let url = "https://transportapi.com/v3/uk/bus/stop/" + stop + "/" + date + "/" + time + "/timetable.json?app_id=4f0d5f61&app_key=103f068736e3b4f9f36bef578e49c5df&group=route&limit=20";
     fetch(url)
     .then(response => response.json())
@@ -23,7 +22,7 @@ function FetchBusTimes(time, date){
  * @param {TimeStamp} date - current time (cleint browser)
  */
 async function BusSchedule(data, time, date){
-    document.getElementById("BusUpdatedStatus").innerHTML = ("<p id='updateStatus'>Updated at: " + time + " " + date + "</p>" );
+    document.getElementById("BusUpdatedStatus").innerHTML = ("<p id='updateStatus'>Updated at: " + time +  "</p>" );
     document.getElementById("busTimetableListings").innerHTML = "";
     for(i=0;i<data.departures[1].length; i++){
 

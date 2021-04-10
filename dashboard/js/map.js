@@ -68,7 +68,6 @@ document.getElementById("parkButton4").onclick = function(){
 //show markers for bus the curretly slected bus stop 
 document.getElementById("showStopButton").onclick = function(){
     let stopCode = document.getElementById("stopsSelect").value;
-    console.log(stopCode);
 
     if(stopCode == "410000015640"){
         var stopLatLng = [-1.6097506, 54.9787097];
@@ -80,7 +79,6 @@ document.getElementById("showStopButton").onclick = function(){
     map.flyTo({
         center: stopLatLng ,
         essential: true,
-        icon: 'bus',
     });
     document.getElementById("maprow").style.height = "auto";
     document.getElementById("maprow").style.visibility = "visible";

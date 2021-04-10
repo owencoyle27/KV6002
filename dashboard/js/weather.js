@@ -15,12 +15,17 @@ function currentWeather(campus) {
     .then(function (resp) { return resp.json() })
     .then(function (data) {
       time = new Date(data.dt * 1000);
-      document.getElementById("weatherTime").innerHTML = (time.getHours() + ":" + time.getMinutes());
+      document.getElementById("weatherTime").innerHTML = ("Last Updated: " + time.getHours() + ":" + time.getMinutes());
       if (campus == "lat=54.9779843&lon=-1.6097892") {
         campusName = "Newcastle City Campus";
       } else if (campus == "lat=55.0066217&lon=-1.5778385") {
         campusName = "Coach Lane Campus";
+      } else if (campus == "lat=51.5178234&lon=-0.0800967") {
+        campusName = "London Campus";
+      } else if (campus == "lat=52.3462904&lon=4.9153553") {
+        campusName = "Amsterdam Campus";
       }
+
       document.getElementById("weatherLoaction").innerHTML = (campusName);
       document.getElementById("icon").src = ("dashboard/icons/" + (data.weather[0].icon) + ".png");
       document.getElementById("weatherTemp").innerHTML = (Math.floor(data.main.temp - 273.15) + "°C");
@@ -29,7 +34,7 @@ function currentWeather(campus) {
     })
     .catch(function () {
       // catch any errors
-      console.log("could nt update weather");
+      console.log("could not update weather");
     });
 }
 
@@ -38,27 +43,28 @@ function currentWeather(campus) {
  * @param {STRING} campus - latitued and logitude of campus location 
  */
 function dailyWeather(campus) {
-  var url = "https://api.openweathermap.org/data/2.5/onecall?" + campus + "&exclude=current,minutely,hourly&appid=c58da940acce3c6f01464a5c6ea5edb8";
+  var url = "https://api.openweathermap.org/data/2.5/onecall?" + campus + "&exclude=current,minutely,daily&appid=c58da940acce3c6f01464a5c6ea5edb8";
   fetch(url)
     .then(function (resp) { return resp.json() })
     .then(function (data) {
       var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       document.getElementById('hourWeatherDisplay').innerHTML = "";
-      for (i = 0; i < data.daily.length; i++) {
-        //getting day
-        var date = new Date(data.daily[i].dt * 1000);
-        var day = date.getDay();
+      for (i = 0; i < 20; i++) {
+        //getting time
+        var date = new Date(data.hourly[i].dt * 1000);
+        var weekday = days[date.getDay()];
+        var day = weekday + " " + (date.getHours() + ":00");
 
         //getiing Icon
-        let icon = ("dashboard/icons/" + data.daily[i].weather[0].icon + ".png");
+        let icon = ("dashboard/icons/" + data.hourly[i].weather[0].icon + ".png");
 
         //get temp
-        let temp = (Math.floor(data.daily[i].temp.day - 273.15) + "°C");
+        let temp = (Math.floor(data.hourly[i].temp - 273.15) + "°C");
 
         //getting description
-        let desc = (data.daily[i].weather[0].description);
+        let desc = (data.hourly[i].weather[0].description);
 
-        document.getElementById('hourWeatherDisplay').innerHTML += ("<div class='hourWeatherCard'><p>" + days[day] + "</p><div class='hourIcon'><img src='" + icon + "' alt='weather icon'></div><b><p>" + temp + "</p></b><p id='hourDesc'>" + desc + "</p><div class='hourTemp'></div></div>");
+        document.getElementById('hourWeatherDisplay').innerHTML += ("<div class='hourWeatherCard'><p>" + day + "</p><div class='hourIcon'><img src='" + icon + "' alt='weather icon'></div><b><p>" + temp + "</p></b><p id='hourDesc'>" + desc + "</p><div class='hourTemp'></div></div>");
       }
     })
     .catch(function () {
