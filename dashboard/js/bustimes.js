@@ -15,11 +15,11 @@ function FetchBusTimes(time, date){
 
 /**
  * BusSchedule - renders bus times to DOM, runs async to not block other renders
- * @Tom Hegarty
+ * @author Tom Hegarty
  * 
  * @param {String} data - data returned from FetchBusTimes api call
- * @param {TimeStamp} time - current date (cleint browser)
- * @param {TimeStamp} date - current time (cleint browser)
+ * @param {TimeStamp} time - current date (client browser)
+ * @param {TimeStamp} date - current time (client browser)
  */
 async function BusSchedule(data, time, date){
     document.getElementById("BusUpdatedStatus").innerHTML = ("<p id='updateStatus'>Updated at: " + time +  "</p>" );
@@ -38,11 +38,11 @@ async function BusSchedule(data, time, date){
 
 /**
  * refeshBusTimtable - reloads FetchBusTimes based on current time (clients browser time)
- * @Tom Hegarty
+ * @author Tom Hegarty
  * 
  */
 function refreshBusTimetable(){
-    document.getElementById("busTimetableListings").innerHTML = "<p>Loading...</p>";
+    document.getElementById("busTimetableListings").innerHTML = "<div class='loader'></div>";
     let d = new Date();
     let busTime = (d.getHours() + ":" + d.getMinutes());
     let busDate = (d.getUTCFullYear() + "-" + (d.getUTCMonth() + 1) + "-" + d.getUTCDate());
