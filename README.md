@@ -1,12 +1,6 @@
 # KV6002
-KV6002 - Team Project and Professionalism 
-Alan Godfrey group 3 – 
-Tom Hegarty 16017590
-Ben Tinson 17006564
-Owen Coyle 17032712
-Matt Perez 17005703
-Enes Zengin 16021863
 
-The system is hosted at - http://20.90.88.150/
-Supporting documentation is not included within this repo, it can be found in the blackboard submission section. 
 
+# This is the start of our GitHub - I'll write this up as a tutorial, but for those of you that understand Git well, the main branch requires a pull request, so any changes will have to be made in seperate branches.
+
+# This as a tutorial will be written up for the weekend starting 

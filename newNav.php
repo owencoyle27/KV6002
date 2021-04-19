@@ -7,10 +7,9 @@
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu">
       <li><a href="index.php">Dashboard</a></li>
-      <li><a href="map.php">Campus Map</a></li>
-      <li><a href="/societies/societies.php">Societies</a></li>
-      <li><a href="/Chat/index.php">Forum</a></li>
-      <li><a href="chatBot.php">Chat Bot</a></li>
+      <li><a href="#">Campus Map</a></li>
+      <li><a href="#">Socities</a></li>
+      <li><a href="#contact">Forum</a></li>
     </ul>
 </header>
 
@@ -107,7 +106,7 @@
     }
 
     .nav .menu-btn:checked ~ .menu {
-        max-height: 360px;
+        max-height: 240px;
     }
 
     .nav .menu-btn:checked ~ .menu-icon .navicon {
