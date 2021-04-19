@@ -1,13 +1,6 @@
 
 <?php
-/**
- * Script to get carpark location, cURL has had to be used to authenticate with endpoint usign header data 
- * API Docs - https://www.netraveldata.co.uk/?page_id=32
- * 
- * @author Tom Hegarty 
- */
 
-    //api endpoint genetered in javascript
     $url = $_POST['parkapiurl'];
 
     $response = get_web_page($url);
@@ -21,7 +14,6 @@
         $username = "tomheg";
         $password = "password";
 
-        //setting request options for cURL request
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
             CURLOPT_HEADER         => false,  // don't return headers
@@ -34,16 +26,16 @@
             CURLOPT_TIMEOUT        => 120,    // time-out on response
         ); 
     
-        //makign curl request
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
         curl_setopt_array($ch, $options);
-        //$contetn is the JSON encoded response form the parking API 
+    
         $content  = curl_exec($ch);
+    
         curl_close($ch);
     
-        //already in JSON, return to carpark.js
         return $content;
+
     }
 
     

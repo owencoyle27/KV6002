@@ -1,59 +1,54 @@
 <?php
-/**
- * Script to allow access to the ver ysecure Twitter API 
- * bearer token is genearted allowing Oauth2 authenication 
- * 
- * @author Tom Hegarty 
- */
 
-  //api keys created for this app
-  $app_key = 'KEY REMOVED FOR GIT HUB PUBLISH';
-  $app_token = 'KEY REMOVED FOR GIT HUB PUBLISH';
-  $api_base = 'KEY REMOVED FOR GIT HUB PUBLISH';
-  $bearer_token_creds = base64_encode($app_key.':'.$app_token);
+//This is all you need to configure.
+$app_key = 'hYoiRhNMKfmsuoz4gRCtmsIHm';
+$app_token = 'me9FvDd9Re4GxL1sKem2UGhdu3qQDesJlVEiE41PaUuMxfRz5s';
 
-  //genrating twitter autnetication token
-  $opts = array(
-    'http'=>array(
-      'method' => 'POST',
-      'header' => 'Authorization: Basic '.$bearer_token_creds."\r\n".
-                'Content-Type: application/x-www-form-urlencoded;charset=UTF-8',
-      'content' => 'grant_type=client_credentials'
-    )
-  );
+//These are our constants.
+$api_base = 'https://api.twitter.com/';
+$bearer_token_creds = base64_encode($app_key.':'.$app_token);
 
-  $streamContext = stream_context_create($opts);
-  $json = file_get_contents($api_base.'oauth2/token',false,$streamContext);
+//Get a bearer token.
+$opts = array(
+  'http'=>array(
+    'method' => 'POST',
+    'header' => 'Authorization: Basic '.$bearer_token_creds."\r\n".
+               'Content-Type: application/x-www-form-urlencoded;charset=UTF-8',
+    'content' => 'grant_type=client_credentials'
+  )
+);
 
-  $result = json_decode($json,true);
+$context = stream_context_create($opts);
+$json = file_get_contents($api_base.'oauth2/token',false,$context);
 
-  //if there is an error genrating token 
-  if (!is_array($result) || !isset($result['token_type']) || !isset($result['access_token'])) {
-    die("Something went wrong. This isn't a valid array: ".$json);
-  }
+$result = json_decode($json,true);
 
-  //if token does not validate with twitter
-  if ($result['token_type'] !== "bearer") {
-    die("Invalid token type. Twitter says we need to make sure this is a bearer.");
-  }
+if (!is_array($result) || !isset($result['token_type']) || !isset($result['access_token'])) {
+  die("Something went wrong. This isn't a valid array: ".$json);
+}
 
-  $accessToken = $result['access_token'];
+if ($result['token_type'] !== "bearer") {
+  die("Invalid token type. Twitter says we need to make sure this is a bearer.");
+}
 
-  //send data to twitter along with new access token
-  $opts = array(
-    'http'=>array(
-      'method' => 'GET',
-      'header' => 'Authorization: Bearer '.$accessToken
-    )
-  );
 
-  $streamContext = stream_context_create($opts);
+//Set our bearer token. Now issued, this won't ever* change unless it's invalidated by a call to /oauth2/invalidate_token.
+//*probably - it's not documentated that it'll ever change.
+$bearer_token = $result['access_token'];
 
-  //get account name from indexpage
-  $accountName = $_POST['accountName'];
+//Try a twitter API request now.
+$opts = array(
+  'http'=>array(
+    'method' => 'GET',
+    'header' => 'Authorization: Bearer '.$bearer_token
+  )
+);
 
-  //api endpint to get results, sent as JSON to twitterFeed.js
-  $json = file_get_contents($api_base.'1.1/statuses/user_timeline.json?count=20&screen_name='. $accountName .'&tweet_mode=extended&include_entities=true&exclude_replies=true&include_rts=false',false,$streamContext);
-  echo $json;
+$context = stream_context_create($opts);
+//$json = file_get_contents($api_base.'1.1/search/tweets.json?count=20&tweet_mode=extended&q=(from%3AnorthumbriaUni%20OR%20from%3Anustudents%20OR%20from%3ANULibrary%20OR%20from%3ANU_CISdept)',false,$context);
+$json = file_get_contents($api_base.'1.1/statuses/user_timeline.json?count=20&screen_name=NorthumbriaUni&tweet_mode=extended&exclude_replies=true&include_rts=false',false,$context);
+echo $json;
+
+
 
 ?>

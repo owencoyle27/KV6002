@@ -1,6 +1,5 @@
 <div class="FooterOuter">
     <div class=FooterInner>
-        <a href="Admin.php">Admin login</a>
         <p><b>Northumbria Univeristy Newcastle</b></p>
         <p>Team Project and Profesionalism </p>
         <p> Alan Godfrey, Group 3</p>
@@ -22,18 +21,6 @@
   padding: 40px;
   box-sizing: border-box;
   text-align: center;
-}
-
-.FooterInner a{
-    color: white;
-    text-decoration: none;
-    border: solid white;
-    padding: 5px;
-}
-
-.FooterInner a:hover{
-    color: black;
-    background-color: white;
 }
 
 </style>

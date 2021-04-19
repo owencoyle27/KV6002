@@ -1,10 +1,6 @@
 
+
 <?php
-/**
- * A seprate script has had to be made to get the carparks total capcity numebr due to the formation of endpoijtd from api
- * API Docs - https://www.netraveldata.co.uk/?page_id=32
- * @author Tom Hegarty 
- */
 
     $url = $_POST['parkapiurl'];
 
@@ -16,7 +12,6 @@
     
     function get_web_page($url) {
 
-        //login details to authenticate with api
         $username = "tomheg";
         $password = "password";
 
@@ -40,7 +35,6 @@
     
         curl_close($ch);
     
-        //retrun to carparks.js
         return $content;
     }
 ?> 
