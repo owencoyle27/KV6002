@@ -18,7 +18,7 @@
 session_start();
 
 /**
- * checks sesion data to esnure an admin is signed in, if NOT display login form, if so, load input forms
+ * checks sesion data to esnure an admin is signed in, if NOT display login form, if so, load input forms.
  * @author Tom Hegarty
  */
 if ( isset( $_SESSION['user_id'] ) ) {
