@@ -1,0 +1,117 @@
+
+
+@media screen and (max-width: 735px) {
+  #query{
+    width: 60%;
+  }
+}
+@media screen and (min-width: 735px) {
+  #query{
+    width: 40%;
+  }
+}
+
+/*Toms changes have been makred with comments, mostly just removed border radius*/
+/*new stuff from Tom*/
+/*just this bosy style */
+body{
+  font-family: Arial, Helvetica, sans-serif!important;
+}
+
+
+.tooltip {
+    display:inline-block;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+input[type=text],input[type=number],input[type=password],#gender ,input[type=email], select , textarea{
+padding: 12px 20px;
+display: inline-block;
+border: 0.5px solid #284B63;
+/*border-radius: 4px;*/
+box-sizing: border-box;
+}
+
+.button{
+  padding: 12px 20px;
+  margin-top: 8%;
+  display: inline-block;
+  border: 2px solid #e4d9ff;
+  /*border-radius: 10px;*/
+  box-sizing: border-box;
+}
+
+
+.pagination > li
+{
+    background-color: #284B63;
+    color: #fff;
+
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: white;
+    background-color: #000;
+    border-color: #eee;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181 !Important;
+    /*border-radius: 10px;*/
+}
+
+.pagination > .active
+{
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181;
+}
+
+.project_link:hover{
+  text-decoration: none;
+}
+
+.page-item{
+  color: #fff;
+}
+
+.auto_com{
+  z-index:-1;
+}
+
+select{
+  width: 100%;
+}
+
+.disscusioncards{
+  background-color: #fff;
+  border: none!important;
+}
+
+.card-body{
+  /*new stuff from Tom*/
+  border: solid black;
+  border-radius: 0%;
+  margin-bottom: 5px;
+}
+
+.card-title{
+  color: #000;
+}
+
+/*new from Tom */
+.acik-renk-form{
+  border: none!important;
+}
+
+.btn{
+  border-radius: 0%; 
+}

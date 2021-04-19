@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard/styles/dashboardStyle.css">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
@@ -18,9 +17,16 @@
    crossorigin=""></script>
 </head>
 
-<?php include "newNav.php" ?>
+
 
 <body>
+
+    <?php include "newNav.php" ?>
+
+    <div class="heroBannerOuter">
+        <img class="heroBanner" src="dashboard/images/heroBanner.jpg" alt="campus dasbaord hero banner">
+        <h1 class="dashboardHeading"> Campus Dashboard </h1>
+    </div>
 
     <div class="row1">
         <div id="updateTextArea">
@@ -65,6 +71,8 @@
                     <select id="weatherSelect" onchange="campusSelect()">
                         <option value="lat=54.9779843&lon=-1.6097892">City Campus</option>
                         <option value="lat=55.0066217&lon=-1.5778385">Coach Lane</option>
+                        <option value="lat=51.5178234&lon=-0.0800967">London Campus</option>
+                        <option value="lat=52.3462904&lon=4.9153553">Amsterdam Campus</option>
                     </select>
             </div>
             <div class="mainWeatherDisplay">
@@ -96,10 +104,10 @@
                     <p> Bus Times:</p> 
                 </div>
                 <div id="StopSelectCont">
-                    <label for="stopsSelect">Choose a Destination:</label>
+                    <label for="stopsSelect">Route:</label>
                     <select id="stopsSelect" onchange="refreshBusTimetable()">
-                        <option value="410000015640">City Campus</option>
-                        <option value="410000009923">Coach Lane</option>
+                        <option value="410000015640">City Campus &rarr; Coach Lane</option>
+                        <option value="410000009923">Coach Lane &rarr; City Campus</option>
                     </select>
                 </div>  
             </div>
@@ -130,6 +138,9 @@
                     <h3><span id="parkOccupied1">X</span>/<span id="parkCapacity1">X</span>  free spaces</h3>
                     <p> at: <span id="parkTime1">time</span>
                 </div>
+                <div class="carBarArea">
+                    <p class="loadingBar" id="loadingBar1"><span id="loadingBar1percent"> 0 </span></p> 
+                </div>
             </div>
             <div class="carparkRow">
                 <div class="upperRow">
@@ -139,6 +150,9 @@
                 <div class="lowerRow">
                     <h3><span id="parkOccupied2">X</span>/<span id="parkCapacity2">X</span>  free spaces</h3>
                     <p> at: <span id="parkTime2">time</span>
+                </div>
+                <div class="carBarArea">
+                    <p class="loadingBar" id="loadingBar2"><span id="loadingBar2percent"> 0 </span></p> 
                 </div>
             </div>
             <div class="carparkRow">
@@ -150,6 +164,9 @@
                     <h3><span id="parkOccupied3">X</span>/<span id="parkCapacity3">X</span> free spaces</h3>
                     <p> at: <span id="parkTime3">time</span>
                 </div>
+                <div class="carBarArea">
+                    <p class="loadingBar" id="loadingBar3"><span id="loadingBar3percent"> 0 </span></p> 
+                </div>
             </div>
             <div class="carparkRow">
                 <div class="upperRow">
@@ -160,21 +177,27 @@
                     <h3><span id="parkOccupied4">X</span>/<span id="parkCapacity4">X</span> free spaces</h3>
                     <p> at: <span id="parkTime4">time</span>
                 </div>
+                <div class="carBarArea">
+                    <p class="loadingBar" id="loadingBar4"><span id="loadingBar4percent"> 0 </span></p> 
+                </div>
             </div>
-
         </div>
 
-
-        <div id="twitterFeed" class="widget1">
-            <h2>Twitter Feed</h2>
-            <p> recent tweets from offical Nortumbria accounts </p>
+        <div id="twitterContainer" class="widget1">
+            <div id="twitterMenu">
+            <label for="twitterSelect">Filter Account:</label>
+                    <select id="twitterSelect" onchange="getTweets()">
+                        <option value="@NorthumbriaSU">Northumbria Students Union</option>
+                        <option value="@NorthumbriaUni">Northumbria University</option>
+                        <option value="@NULibrary">Northumbria Library</option>
+                        <option value="@NorthUniSport">Northumbria Sport</option>
+                        <option value="@NewcastleCC">Newcastle City Council</option>
+                    </select>
+            </div>
+            <div id="twitterFeed">
+                <h2>Twitter Feed</h2>
+            </div>
         </div>
-
-        <style>
-
-
-        </style>
-
     </div>
 
 

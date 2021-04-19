@@ -20,7 +20,7 @@ function getDbConnection($dbname) {
     return $dbConnection;
 }
 /**
- * 
+ * function to handle submission of new dasbaord headline updates, savign to database 
  * 
  * @param $conn {PDO db connectin}
  * @param $updateMessage {String} - message body text
@@ -62,7 +62,7 @@ function updateMessage($conn, $updateMessage, $updateDate) {
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
-      echo "<p class='updateError'>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>"; //change
+      echo "<p class='updateError'>please ensure correct fyle type, only JPG, PNG & GIF files are allowed.</p>"; //change
       $check = 0;
       header("Refresh:1; url=../../Admin.php");
     }
@@ -74,7 +74,7 @@ function updateMessage($conn, $updateMessage, $updateDate) {
     // if everything is ok, try to upload file
     } else {
       if (move_uploaded_file($_FILES["filename"]["tmp_name"], $target_dir . "updateImage".".". $imageFileType)) {
-        echo "<p class='updateError'>dashbaord headline message has benen updated</p>";
+        echo "<p class='updateError'>Success: dashbaord headline message has been updated</p>";
         header("Refresh:1; url=../../Admin.php");
       } else {
         echo "<p class='updateError'>Sorry, there was an error updating the dashboard please try again.</p>";
@@ -88,7 +88,9 @@ $conn = getDbConnection($dbname);
 updateMessage($conn, $updateMessage, $updateDate);
 ?>
 
+
 <style>
+
     .updateError{
         box-sizing: border-box;
         font-family: Arial, Helvetica, sans-serif;

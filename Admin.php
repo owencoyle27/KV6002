@@ -11,15 +11,7 @@
 
 </head>
 
-    <!--NAv by Matt Perez-->
-    <div class ="nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="societies.html">Societies</a></li>
-          <li><a href="map.html">Map</a></li>
-          <li><a href="forum.html">Forum</a></li>
-        </ul>
-    </div> 
+<?php include "newNav.php" ?>
     
 <?php
 
