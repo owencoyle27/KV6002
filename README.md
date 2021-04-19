@@ -1,5 +1,8 @@
 # KV6002
 KV6002 - Team Project and Professionalism 
+
+get_commit_fix_v2 is the main branch 
+
 Alan Godfrey group 3 – 
 Tom Hegarty 16017590
 Ben Tinson 17006564
