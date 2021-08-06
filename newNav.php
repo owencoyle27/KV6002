@@ -1,16 +1,12 @@
 
 <header class="nav">
     <a href="index.php" class="logo">
-        <img alt="Northumbria" src="images/Logo.png" width="200">
+        <img alt="Northumbria" src="images/logo.png" width="200">
     </a>
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu">
       <li><a href="index.php">Dashboard</a></li>
-      <li><a href="map.php">Campus Map</a></li>
-      <li><a href="/societies/societies.php">Societies</a></li>
-      <li><a href="/Chat/index.php">Forum</a></li>
-      <li><a href="chatBot.php">Chat Bot</a></li>
     </ul>
 </header>
 

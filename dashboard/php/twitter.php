@@ -7,9 +7,9 @@
  */
 
   //api keys created for this app
-  $app_key = 'KEY REMOVED FOR GIT HUB PUBLISH';
-  $app_token = 'KEY REMOVED FOR GIT HUB PUBLISH';
-  $api_base = 'KEY REMOVED FOR GIT HUB PUBLISH';
+  $app_key = 'hYoiRhNMKfmsuoz4gRCtmsIHm';
+  $app_token = 'me9FvDd9Re4GxL1sKem2UGhdu3qQDesJlVEiE41PaUuMxfRz5s';
+  $api_base = 'https://api.twitter.com/';
   $bearer_token_creds = base64_encode($app_key.':'.$app_token);
 
   //genrating twitter autnetication token

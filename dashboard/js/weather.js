@@ -10,7 +10,7 @@
  * @param {STRING} campus - latitued and logitude of campus location 
  */
 function currentWeather(campus) {
-  var url = "http://api.openweathermap.org/data/2.5/weather?" + campus + "&appid=c58da940acce3c6f01464a5c6ea5edb8";
+  var url = "https://api.openweathermap.org/data/2.5/weather?" + campus + "&appid=c58da940acce3c6f01464a5c6ea5edb8";
   fetch(url)
     .then(function (resp) { return resp.json() })
     .then(function (data) {
