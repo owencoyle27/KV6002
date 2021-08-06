@@ -1,18 +1,18 @@
 
 <header class="nav">
-    <a href="index.php" class="logo">
-        <img alt="Northumbria" src="images/logo.png" width="200">
+    <a href="../index.php" class="logo">
+        <img alt="Northumbria" src="../images/Logo.png" width="200">
     </a>
     <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <label class="menu-icon" style="position:fixed;right:0px;" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu">
-      <li><a href="index.php">Dashboard</a></li>
-<<<<<<< HEAD
-=======
-      <li><a href="#">Campus Map</a></li>
-      <li><a href="#">Socities</a></li>
-      <li><a href="#contact">Forum</a></li>
->>>>>>> 94e759be4ca40c4bfd21a35d8c3c8adee1c1d6a8
+      <center>
+      <li><a href="../index.php">Dashboard</a></li>
+      <li><a href="../map.php">Campus Map</a></li>
+      <li><a href="/societies/societies.php">Socities</a></li>
+      <li><a href="../Chat/index.php">Forum</a></li>
+      <li><a href="../chatBot.php">Chat Bot</a></li>
+    </center>
     </ul>
 </header>
 
@@ -31,7 +31,7 @@
         list-style: none;
         overflow: hidden;
         background-color: black;
-        
+
     }
 
     .nav li a {
@@ -88,7 +88,7 @@
     .nav .menu-icon .navicon:before,
     .nav .menu-icon .navicon:after {
         background: white;
-        
+
         display: block;
         height: 100%;
         position: absolute;
@@ -109,7 +109,7 @@
     }
 
     .nav .menu-btn:checked ~ .menu {
-        max-height: 240px;
+        max-height: 360px;
     }
 
     .nav .menu-btn:checked ~ .menu-icon .navicon {
@@ -157,15 +157,18 @@
 
         .nav .menu {
             clear: none;
-            float: right;
+            float: right !important;
             max-height: none;
-            height: 100%;
+            height: 50%;
+            margin-left: auto;
             margin-right: 50px;
+            margin-top:35px;
         }
 
         .nav .menu-icon {
             display: none;
         }
+
 
     }
 

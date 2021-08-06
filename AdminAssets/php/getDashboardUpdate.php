@@ -1,7 +1,6 @@
 <?php
 /**
- * script to get the values in the data base from the dashboard update and return them in JSON format
- * allows for to be pre-populated and edited 
+ * script to get the values in the data base fro the dashbaord update and return them in JSON format
  * 
  * @author TOM Hegerty
  * @date 16/03/2021
